@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>To Do Zespolowe test test test</title>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+      body {
+        background-color: rgb(159, 223, 248);
+        font-family: 'Oswald', sans-serif;
+      }
+
+      h1,h2,h3,h4,h5,h6 {
+        color: antiquewhite;
+        font-family: 'Raleway', sans-sarif;
+        border-radius: 25px;
+      }
+
+      .aCustom{
+        color: antiquewhite;
+        transition: color 0.5s;
+      }
+
+      .aCustom:hover{
+        opacity: 0.8;
+        color: crimson;
+      }
+
+      a{
+        color: antiquewhite;
+        transition: color 0.5s;
+      }
+
+      a:hover{
+        opacity: 0.8;
+        color: crimson;
+      }
+
+      p{
+        color: antiquewhite;
+      }
+
+      s{
+        color: crimson;
+      }
+
+      .compleate{
+        color: crimson;
+      }
+
+      .progress{
+        position: relative;
+        width: 210px;
+        height: 30px;
+        background: #fdfdfd;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+
+      .progress_fill{
+        width: 0%;
+        height: 100%;
+        background: #0a81ea;
+        transition: all 0.2s;
+      }
+
+      .progress_text{
+        position: absolute;
+        top: 50%;
+        right: 5px;
+        transform: translateY(-50%);
+        font: bold 14px "Crimson", sans-serif;
+        color: #fdfdfd;
+      }
+
+
+      .container{
+        max-width: 600px;
+        margin: auto;
+        background-color: rgb(159, 223, 248);
+        border-radius: 25px;
+        -webkit-box-shadow: 3px 3px 15px -5px rgba(255, 255, 255, 0.897);
+        box-shadow: 3px 3px 15px -5px rgba(255, 255, 255, 0.897);
+
+      }
+
+      .header-bar{
+        display: flex;
+        justify-content: space-between;
+        color: azure;
+        padding: 10px;
+        border-radius: 25px;
+        background: linear-gradient(90deg, #8af8f178 0%, #72f6ee78 50%, #59f8ee78 100%);
+      }
+
+      .header-bar a{
+         color: azure;
+         text-decoration: none;
+      }
+
+      .task-wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 25px;
+        padding: 25px;
+        background-color: rgb(133, 217, 248);
+        border-top: 2px solid azure;
+        border-right: 2px solid azure;
+        border-radius: 25px;
+      }
+
+      .task-title{
+        display: flex;
+        border-radius: 25px;
+      }
+
+      .task-title a{
+        text-decoration: none;
+        color: azure;
+        margin-left: 15px;
+        transition: color 0.5s;
+      }
+
+      .task-title a:hover{
+        opacity: 0.8;
+        color: crimson;
+      }
+    
+
+      .task-incomplete-icon {
+        height: 25px;
+        width: 25px;
+        background-color: rgb(248, 244, 244);
+        border-radius: 40%;
+      }
+
+      .delete-link{
+        text-decoration: none;
+        font-size: 25px;
+        color: azure;
+        font-weight: 800;
+        transition: color 0.5s;
+      }
+
+      .delete-link:hover{
+        opacity: 0.8;
+        color: crimson
+      }
+
+      .delete-link:active{
+        opacity: 0.4;
+      }
+
+      .search-add-wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px
+      }
+
+      .add-link{
+        color: azure;
+        text-decoration: none;
+        font-size: 55px;
+        transition: color 0.5s;
+      }
+
+      .add-link:hover{
+        opacity: 0.8;
+        color: crimson
+      }
+
+      .add-link:active{
+        opacity: 0.4;
+      }
+
+      input[type=text],
+      input[type=password],
+      textarea {
+        border: 1px solid azure;
+        border-radius: 5px;
+        padding: 10px;
+         width: 90%;
+      }
+
+      label{
+          padding-top: 10px !important;
+           display: block;
+      }
+
+      ::placeholder{
+          font-weight: 300;
+          opacity: 0.5;
+      }
+
+      .button {
+          border: 1px solid azure;
+          background-color: rgba(62, 186, 228, 0.545);
+          color: #fdfdfd;
+          padding: 10px;
+          font-size: 14px;
+          border-radius: 5px;
+          cursor: pointer;
+          text-decoration: none;
+          transition: color 0.5s, background-color 0.5s;
+      }
+
+      .button:hover{
+        opacity: 0.8;
+        background-color: #fdfdfd;
+        color: rgba(62, 186, 228, 0.545);
+      }
+
+    </style>
+
+
+  </head>
+  <body>
+	<div class="container">
+      {% block content %}
+
+      {% endblock content %}
+    </div>
+  </body>
+</html>

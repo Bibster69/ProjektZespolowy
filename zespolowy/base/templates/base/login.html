@@ -1,0 +1,17 @@
+{% extends 'base/base_template.html' %}
+
+{% block content %}
+
+<h1> Login </h1>
+
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Zaloguj">
+</form>
+
+
+<h2> Nie masz konta ?</h2>
+<a href="{% url 'register' %}"> Zarejestruj się! </a>
+
+{% endblock content %}

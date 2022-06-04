@@ -1,0 +1,17 @@
+{% extends 'base/base_template.html' %}
+
+{% block content %}
+
+<div class="header-bar">
+    <a class="aCustom" href="{% url 'task_list' %}"><font size="5">&#8592;Powrót</font></a>
+</div>
+
+<h1> Tworzenie Zadania </h1>
+
+<form method="POST" action="">
+    {%csrf_token%}
+    {{form.as_p}}
+    <input class="button" type="submit" value="Zapisz">
+</form>
+
+{% endblock content %}

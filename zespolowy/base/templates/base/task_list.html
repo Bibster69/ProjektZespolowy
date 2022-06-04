@@ -1,0 +1,76 @@
+{% extends 'base/base_template.html' %}
+
+{% block content %}
+
+<div class="header-bar">
+    <div>
+        <h1>Witaj {{request.user}}</h1>
+        <h3 style="margin: 0;"> You've got: <i>{{count}}</i> Unfinished Task(s)</h3>
+        <h3 style="margin: 0;">EXP Sum: <i>{{exp_sum}}</i></h3>
+        <h3 style="margin: 0;">Current level: <i>{{current_lvl}}</i></h3>
+        <div class="w3-white w3-round">
+            <div id="myBar" class="w3-red w3-round" style="height:24px;width:{{exp_sum}}%">{{exp_left}}exp To next level!</div>
+        </div>
+        <!--<button class="w3-button w3-green" onclick="move()">Click Me</button>-->
+    </div>
+
+
+
+        {% if request.user.is_authenticated %}
+            <a class="aCustom" href="{% url 'logout' %}"> Wyloguj </a>
+        {% else %}
+            <a class="aCustom" href="{% url 'login' %}"> Login </a>
+        {% endif %}
+</div>
+
+<h1>Lista To Do</h1>
+
+<div class="search-add-wrapper">
+    
+    <form method="GET" style="margin-top :25px; display: flex;">
+        <input type="text" name="search_text_area" value="{{search_input}}">
+        <input class ="button" type="submit", value="Szukaj">
+    </form>
+
+    <a class='add-link' href="{% url 'task_create' %}"> &#x2b </a>
+</div>
+
+<div class="task-items-wrapper">
+    {% for task in tasks %}
+        <div class="task-wrapper">
+            {% if task.complete %}
+                <div class="task-title">
+                    <div class="compleate">&#x2713</div>
+                    <i><s>{{task}}    ({{task.dateTime_created}})</s></i>
+                </div>
+                <a class="delete-link" href="{% url 'task_delete' task.id %}"> &#215 </a>
+            {% else %}
+                <div class="task-title">
+                    <div class="task-incomplete-icon"></div>
+                    <i><a href="{% url 'task_update' task.id %}">{{task}}({{task.dateTime_created}})</a></i>
+                </div>
+                <a class="delete-link" href="{% url 'task_delete' task.id %}"> &#215 </a>
+            {% endif %}
+        </div>
+    {% empty %}
+        <h2> Nie masz zadań </h2>
+    {% endfor %}
+</div>
+
+<script>
+function move() {
+  var elem = document.getElementById("myBar");
+  var width = 20;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (width >= {{progress_lvl}}) {
+      clearInterval(id);
+    } else {
+      width++;
+      elem.style.width = width + '%';
+      elem.innerHTML = width * 1  + '%';
+    }
+  }
+}
+</script>
+{% endblock content %}
